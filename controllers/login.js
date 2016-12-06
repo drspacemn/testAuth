@@ -11,7 +11,7 @@ exports.loginPost = function(req, res, next){
     console.log(req.body.url)
     var host = req.headers.origin;
     var endpoint = '/api/oauth2/authorize';
-    var client_id = 'id';
+    var client_id = 'alexa-skill';
     var response_type = 'code';
     var redirect_uri = 'http://localhost:3000';
 
