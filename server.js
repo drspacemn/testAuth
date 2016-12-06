@@ -46,6 +46,9 @@ var router = express.Router();
 app.get('/', function(req, res, next){
     res.redirect('/api/login')
 })
+app.get('/privacy', function(req, res, next){
+    res.render('privacy', {title: 'Privacy Page'})
+})
 
 router.route('/login')
     .get(loginController.loginGet)
