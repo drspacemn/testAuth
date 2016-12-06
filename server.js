@@ -12,6 +12,7 @@ var deviceController = require('./controllers/device');
 var userController = require('./controllers/user');
 var clientController = require('./controllers/client');
 var oauth2Controller = require('./controllers/oauth2');
+var loginController = require('./controllers/login')
 
 mongoose.connect('mongodb://localhost:27017/app')
 
@@ -37,6 +38,10 @@ var port = process.env.PORT || 3000;
 
 // Create our Express router
 var router = express.Router();
+
+router.route('/login')
+    .get(loginController.loginGet)
+    .post(authController.isAuthenticated, loginController.loginPost)
 
 router.route('/users')
     .post(authController.isAuthenticated, userController.postUsers)
