@@ -14,7 +14,7 @@ var clientController = require('./controllers/client');
 var oauth2Controller = require('./controllers/oauth2');
 var loginController = require('./controllers/login')
 
-mongoose.connect('mongodb://localhost:27017/app')
+mongoose.connect('mongodb://heroku_lsx2c8b3:ej8khtb7d47genk2sg9pksjsds@ds031681.mlab.com:31681/heroku_lsx2c8b3')
 
 // Create our Express application
 var app = express();
