@@ -7,6 +7,7 @@ var Token = require('../app/models/token');
 
 passport.use(new BasicStrategy(
   function(username, password, callback) {
+    console.log('got to func')
     User.findOne({ username: username }, function (err, user) {
       if (err) { return callback(err); }
 
@@ -18,9 +19,11 @@ passport.use(new BasicStrategy(
         if (err) { return callback(err); }
 
         // Password did not match
+        console.log('didnot make it')
         if (!isMatch) { return callback(null, false); }
 
         // Success
+        console.log('made it')
         return callback(null, user);
       });
     });
