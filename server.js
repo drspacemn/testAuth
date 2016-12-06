@@ -52,7 +52,7 @@ app.get('/privacy', function(req, res, next){
 
 router.route('/login')
     .get(loginController.loginGet)
-    .post(authController.isAuthenticated, loginController.loginPost)
+    .post(loginController.loginPost)
 
 router.route('/users')
     .post(authController.isAuthenticated, userController.postUsers)
