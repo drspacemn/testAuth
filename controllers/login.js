@@ -8,10 +8,9 @@ exports.loginGet = function(req, res, next){
 
 // http://localhost:3000/api/oauth2/authorize?client_id=this_is_my_id&response_type=code&redirect_uri=http://localhost:3000
 exports.loginPost = function(req, res, next){
-    //var alexaObject = querystring.parse(alexaUrl.query, '&', '=');
 
-    var urlObj = querystring.parse(req.body.url, '&', '=')
     console.log(urlObj)
+    var urlObj = querystring.parse(req.body.url, '&', '=')
     var host = req.headers.origin;
     var endpoint = '/api/oauth2/authorize';
     var client_id = 'alexa-skill';

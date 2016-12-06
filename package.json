@@ -1,5 +1,5 @@
 {
-  "name": "beerlocker",
+  "name": "oauth2test",
   "main": "server.js",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
