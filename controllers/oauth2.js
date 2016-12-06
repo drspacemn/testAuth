@@ -31,6 +31,7 @@ server.grant(oauth2orize.grant.code(function(client, redirectUri, user, ares, ca
     userId: user._id
   });
 
+  console.log(code)
   // Save the auth code and check for errors
   code.save(function(err) {
     if (err) { return callback(err); }

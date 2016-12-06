@@ -43,9 +43,9 @@ var port = process.env.PORT || 3000;
 // Create our Express router
 var router = express.Router();
 
-app.get('/', function(req, res, next){
-    res.redirect('/api/login')
-})
+// app.get('/', function(req, res, next){
+//     res.redirect('/api/login')
+// })
 app.get('/privacy', function(req, res, next){
     res.render('privacy', {title: 'Privacy Page'})
 })
