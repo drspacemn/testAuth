@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var ejs = require('ejs');
 var session = require('express-session');
+var path = require('path');
 
 var authController = require('./controllers/auth');
 var deviceController = require('./controllers/device');
@@ -24,6 +25,7 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({
     extended: true
 }))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
     secret: 'layerthree',
