@@ -36,6 +36,10 @@ app.use(passport.initialize())
 // Use environment defined port or 3000
 var port = process.env.PORT || 3000;
 
+app.get('/', function(req, res, next){
+    res.redirect('/api/login')
+})
+
 // Create our Express router
 var router = express.Router();
 
