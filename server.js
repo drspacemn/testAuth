@@ -16,8 +16,8 @@ var clientController = require('./controllers/client');
 var oauth2Controller = require('./controllers/oauth2');
 var loginController = require('./controllers/login')
 
-// mongoose.connect('mongodb://localhost:27017/app');
-mongoose.connect('mongodb://heroku_lsx2c8b3:ej8khtb7d47genk2sg9pksjsds@ds031681.mlab.com:31681/heroku_lsx2c8b3')
+mongoose.connect('mongodb://localhost:27017/app');
+// mongoose.connect('mongodb://heroku_lsx2c8b3:ej8khtb7d47genk2sg9pksjsds@ds031681.mlab.com:31681/heroku_lsx2c8b3')
 
 // Create our Express application
 var app = express();
@@ -67,7 +67,7 @@ router.route('/oauth2/authorize')
     .post(authController.isAuthenticated, oauth2Controller.decision)
 
 router.route('/oauth2/token')
-    .post(authController.isClientAuthenticated, oauth2Controller.token)
+    .post(oauth2Controller.token)
 
 router.route('/device')
     .post(authController.isAuthenticated, deviceController.postDevice)

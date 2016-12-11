@@ -36,13 +36,13 @@ server.grant(oauth2orize.grant.code(function(client, redirectUri, user, ares, ca
   code.save(function(err) {
     if (err) { return callback(err); }
 
-    callback(null, code.value);
+    callback(null, code.value, "state"f);
   });
 }));
 
 
 
-server.exchange(oauth2orize.exchange.code(function(client, code, redirectUri, callback) {
+server.exchange(oauth2orize.exchange.code(function(client, authCode, redirectUri, callback) {
   Code.findOne({ value: code }, function (err, authCode) {
     if (err) { return callback(err); }
     if (authCode === undefined) { return callback(null, false); }
@@ -77,12 +77,13 @@ exports.authorization = [
 
     Client.findOne({ id: clientId }, function (err, client) {
       if (err) { return callback(err); }
+    console.log(clientId, redirectUri)
 
       return callback(null, client, redirectUri);
     });
   }),
   function(req, res){
-    res.render('dialog', { transactionID: req.oauth2.transactionID, user: req.user, client: req.oauth2.client });
+    res.render('dialog', { transactionID: req.oauth2.transactionID, client: req.oauth2.client });
   }
 ]
 
